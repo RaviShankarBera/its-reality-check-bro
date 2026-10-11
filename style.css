@@ -62,3 +62,12 @@ h2{font-weight:900;font-stretch:80%;font-size:clamp(34px,6vw,64px);margin:6px 0 
 #fx{position:fixed;inset:0;pointer-events:none;z-index:30}.ft{position:absolute;font:900 22px 'Archivo';color:var(--gold);animation:fl 1s forwards}.ft.neg{color:#fff;background:#000;padding:2px 8px;border-radius:8px}
 @keyframes fl{to{transform:translateY(-70px);opacity:0}}
 @media(max-width:560px){.balloon{width:128px;min-height:150px;font-size:12px}.tgt{width:150px;height:150px;padding:26px;font-size:12px}.hud .meterwrap{margin-left:0}}
+
+/* language + sound controls */
+#ctl{position:fixed;right:12px;bottom:12px;z-index:50;display:flex;gap:8px;align-items:center}
+#ctl button{font:700 12px 'Martian Mono',monospace;letter-spacing:.06em;color:var(--cream);background:rgba(0,0,0,.45);border:1px solid var(--cream);border-radius:99px;padding:8px 12px;cursor:pointer;display:flex;gap:2px;align-items:center;backdrop-filter:blur(4px)}
+#ctl #langBtn span{padding:3px 8px;border-radius:99px;opacity:.7;font-family:'Noto Sans Devanagari','Martian Mono',sans-serif}
+#ctl #langBtn span.on{background:var(--cream);color:var(--ink);opacity:1}
+html.hi body,html.hi .btn-big,html.hi .opt,html.hi .shield,html.hi .lv,html.hi .pill,html.hi .link,html.hi .mono,html.hi .chip,html.hi .tabs button{font-family:'Archivo','Noto Sans Devanagari',system-ui,sans-serif}
+html.hi .mono,html.hi .pill,html.hi .chip,html.hi .link{text-transform:none;letter-spacing:.02em}
+html.hi .kicker,html.hi .foot{text-transform:none}
