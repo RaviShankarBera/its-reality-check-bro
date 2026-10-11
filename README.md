@@ -1,4 +1,4 @@
-# Receipts, Bro.
+# Reality Check, Bro.
 
 A small browser game that turns 36 political claims into four levels (balloon popping, dart the myth, final boss, rumour wildfire). Every claim ends with a plain-language reality check and links to the public reporting it is based on.
 
