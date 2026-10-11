@@ -115,7 +115,7 @@ function renderBoard(){const today=new Date().toISOString().slice(0,10);let r=[.
  $$("#bTabs button").forEach(b=>b.classList.toggle("on",b.dataset.t===bt))}
 $("#bTabs").onclick=e=>{const b=e.target.closest("button");if(b){bt=b.dataset.t;renderBoard()}};
 $("#saveScore").onclick=()=>{const n=($("#nick").value||"Anon").trim().slice(0,16)||"Anon";store.set("rb_nick",n);S.board.push({n,s:G.finalScore||0,d:new Date().toISOString().slice(0,10)});save();bt="all";renderBoard();$("#ovBoard").hidden=false};
-async function share(){const d={title:"Receipts, Bro.",text:"Pop claims, dart myths, check the receipts.",url:location.href};try{if(navigator.share){await navigator.share(d);return}await navigator.clipboard.writeText(d.url);toast("Link copied")}catch(e){}}
+async function share(){const d={title:"Reality Check, Bro.",text:"Pop claims, dart myths, check the receipts.",url:location.href};try{if(navigator.share){await navigator.share(d);return}await navigator.clipboard.writeText(d.url);toast("Link copied")}catch(e){}}
 document.addEventListener("click",e=>{
  const lv=e.target.closest("[data-lv]");if(lv){const n=+lv.dataset.lv;if(S.dev||n<=S.unlocked)intro(n);else toast("Clear the previous level first");return}
  const b=e.target.closest("[data-act]");if(!b)return;const a=b.dataset.act;
