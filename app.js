@@ -56,7 +56,7 @@ function balloons(a){
   const w=a.clientWidth;e.style.left=rnd(6,Math.max(10,w-160))+"px";const o={e,y:a.clientHeight+10,v:rnd(55,85)+G.n*5,item};e.style.top=o.y+"px";live.add(o);a.appendChild(e);
   e.onpointerdown=ev=>{ev.stopPropagation();if(G.modal||G.ended)return;live.delete(o);e.remove();const r=e.getBoundingClientRect();
    if(item.c){award(ev.clientX,ev.clientY);G.done.add(item.c.id);reality(item.c,()=>{hud();finishIf()})}else{penalize(ev.clientX,ev.clientY,"That one is a fact")}}}
- function loop(t){const dt=Math.min(.05,(t-last)/1000);last=t;
+ function loop(t){const dt=Math.min(.25,(t-last)/1000);last=t;
   if(!G.modal&&!G.ended){acc+=dt;const left=G.queue.length;if(acc>1.25&&live.size<7){acc=0;spawn()}
    live.forEach(o=>{o.y-=o.v*dt;o.e.style.top=o.y+"px";if(o.y<-220){live.delete(o);o.e.remove();if(o.item.c){G.queue.push(o.item.c);G.miss++;G.streak=0;G.combo=1;G.meter+=14;hud();if(G.meter>=100)over()}}})}
   raf=requestAnimationFrame(loop)}
@@ -73,7 +73,7 @@ function darts(a){
   if(!hit){G.streak=0;G.combo=1;hud();return}
   live.delete(hit);hit.e.remove();
   if(hit.item.c){award(ev.clientX,ev.clientY);G.done.add(hit.item.c.id);reality(hit.item.c,()=>{hud();finishIf()})}else penalize(ev.clientX,ev.clientY,"That one is a fact")};
- function loop(t){const dt=Math.min(.05,(t-last)/1000);last=t;
+ function loop(t){const dt=Math.min(.25,(t-last)/1000);last=t;
   if(!G.modal&&!G.ended){acc+=dt;if(acc>1.6&&live.size<5){acc=0;spawn()}
    const w=a.clientWidth;live.forEach(o=>{o.x+=o.v*dt;o.e.style.left=o.x+"px";if(o.x>w+220||o.x<-420){live.delete(o);o.e.remove();if(o.item.c){G.queue.push(o.item.c);G.miss++;G.streak=0;G.combo=1;G.meter+=12;hud();if(G.meter>=100)over()}}})}
   raf=requestAnimationFrame(loop)}
