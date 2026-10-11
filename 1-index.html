@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Receipts, Bro. - a political reality-check game</title>
+<meta name="description" content="Pop claims, dart myths, break shields and stop rumours. 36 political claims, each with a source-backed reality check. By Ravi Shankar Bera, Stacknity.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Martian+Mono:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head>
+<body>
+<section class="screen" id="landing">
+  <header class="top"><span class="mono small">POPPING THE PROPAGANDA.</span><nav><button class="pill" data-act="share">Share</button><button class="pill" data-act="receipts">Receipts</button></nav></header>
+  <div class="hero">
+    <h1>RECEIPTS,<br>BRO.</h1>
+    <p class="mono sub">BIG CLAIMS. REAL SOURCES.<br><span>LET'S SEE WHAT SURVIVES.</span></p>
+    <button class="btn-big" data-act="levels">START PLAYING <i>→</i></button>
+    <button class="link" data-act="board">🏆 SCOREBOARD</button>
+    <button class="link" data-act="share">⇪ SHARE</button>
+  </div>
+  <footer class="foot mono">An independent explainer game by <a href="https://ravishankarbera.github.io/RSBs-Profile/" target="_blank" rel="noopener">Ravi Shankar Bera</a> · Stacknity. Not affiliated with any party, the ECI or any movement. Reality checks summarise the linked public reporting as of Oct 2026. Open the sources and judge for yourself.</footer>
+</section>
+
+<section class="screen" id="levels" hidden>
+  <header class="top"><button class="pill" data-act="home">← Home</button><nav><button class="pill" data-act="board">Scoreboard</button><button class="pill" data-act="receipts">Receipts</button></nav></header>
+  <div class="wrap"><h2>Choose your level of delulu</h2>
+  <p class="mono small dim">Clear a level to unlock the next one.</p>
+  <label class="dev mono small"><input type="checkbox" id="dev"> Dev mode: unlock every level</label>
+  <div id="levelList" class="levels"></div></div>
+</section>
+
+<section class="screen" id="intro" hidden>
+  <header class="top"><button class="pill" data-act="levels">← Level select</button></header>
+  <div class="wrap center"><p class="mono kicker" id="introKick"></p><h2 id="introTitle"></h2><p class="lead" id="introLead"></p>
+  <ol class="steps" id="introSteps"></ol><button class="btn-big" id="introGo">GO →</button></div>
+</section>
+
+<section class="screen" id="game" hidden>
+  <div class="hud"><button class="pill" data-act="levels">✕</button>
+    <div><b id="hLvl"></b> <span id="hName"></span></div>
+    <div class="mono">Score <b id="hScore">000000</b></div><div class="mono">Combo <b id="hCombo">x1</b></div><div class="mono"><span id="hClaims">0/0</span></div>
+    <div class="meterwrap"><span class="mono small">Afwah meter</span><div class="meter"><i id="hMeter"></i></div></div></div>
+  <div id="arena" class="arena"></div>
+  <div id="fx"></div>
+</section>
+
+<section class="screen" id="done" hidden><div class="wrap center"><p class="mono kicker" id="doneKick"></p><h2 id="doneTitle"></h2><div id="doneStats" class="stats"></div>
+  <div class="row"><button class="btn-big" id="doneNext">NEXT LEVEL →</button><button class="pill big" data-act="retry">Replay</button><button class="pill big" data-act="levels">Levels</button></div></div></section>
+
+<section class="screen" id="final" hidden><div class="wrap center"><p class="mono kicker">ALL 4 LEVELS CLEARED</p><h2>Receipts, Bro. Done.</h2>
+ <p class="lead">Claims popped. Myths darted. Shields broken. Rumours contained.</p><div id="finalStats" class="stats"></div>
+ <input id="nick" class="nick" maxlength="16" placeholder="Your nickname"><div class="row"><button class="btn-big" id="saveScore">POST SCORE</button><button class="pill big" data-act="receipts">Read the receipts</button><button class="pill big" data-act="share">Share</button></div></div></section>
+
+<section class="screen" id="receipts" hidden>
+  <header class="top"><button class="pill" data-act="home">← Home</button><button class="pill" data-act="levels">Play</button></header>
+  <div class="wrap"><h2>The receipts</h2><p class="mono small dim">All 36 claims, each with a reality check and sources. Tap any card to open it.</p>
+  <div class="tabs" id="rTabs"></div><div id="rList" class="rlist"></div>
+  <p class="mono small dim note">Each check summarises the linked pages. Where the reporting is mixed, the card says so. If you spot an error, open an issue on the repo.</p></div>
+</section>
+
+<div class="ov" id="ovReality" hidden><div class="card" id="realityCard"></div></div>
+<div class="ov" id="ovBoard" hidden><div class="card"><button class="x" data-act="closeBoard">✕</button><h3>Scoreboard</h3>
+  <div class="tabs" id="bTabs"><button data-t="all" class="on">All time</button><button data-t="today">Today</button></div>
+  <p class="mono small dim" id="bCap">Best runs saved on this device.</p><ol id="bList" class="board"></ol></div></div>
+<div id="toast" class="toast"></div>
+<script src="data.js"></script><script src="app.js"></script>
+</body></html>
